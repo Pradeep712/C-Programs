@@ -1,0 +1,32 @@
+/* Algorithm for concatenation
+Let us assume that the two linked lists are referenced by head1 and head2 respectively.
+
+1. If the first linked list is empty then return head2.
+
+2. If the second linked list is empty then return head1.
+
+3. Store the address of the starting node of the first linked list in a pointer variable, say p.
+
+4. Move the p to the last node of the linked list through simple linked list traversal technique.
+
+5. Store the address of the first node of the second linked list in the next field of the node pointed by p. Return head1.*/
+
+ C Function to Concatenate two Linked Lists
+node * concatenate (node *head1, node *head2)
+{
+                node *p;
+                if (head1==NULL)                            //if the first linked list is empty
+                                return (head2);
+
+                if (head2==NULL)                            //if second linked list is empty
+                                return (head1);
+               
+                p=head1;                             //place p on the first node of the first linked list
+               
+                while (p->next!=NULL)                 //move p to the last node
+                                p=p->next;
+
+                p->next=head2;                           //address of the first node of the second linked list stored in the last node of the first linked list
+                
+                return (head1);
+}

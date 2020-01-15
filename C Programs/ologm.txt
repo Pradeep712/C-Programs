@@ -1,0 +1,12 @@
+Compute n^m in O(log m), you will need it some day!
+
+int Compute(int n,int m){
+int re=1;
+while(m){
+if(m&1)
+re*=n;
+n*=n;
+m>>=1;
+}
+return re;
+}

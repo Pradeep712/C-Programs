@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+main()
+{
+int num[] = {1,4,8,12,16};
+int *p,*q;
+int i;
+p = num;
+q = num+2;
+i = *p++;
+printf("%d, %d, %d\n",i, *p, *q);
+}
+
+Options:
+a) 4, 4, 8
+b) 1, 4, 8
+c) 2, 1, 8
+d) 2, 4, 8
+
+
+
+Answer: b) 1, 4, 8
+
+Explanation:
+- at p=num, p will point to first element of num i.e. 1
+- at q=num+2, q will point to third element of num i.e. 8
+- at i=*p++, as * has higher precedence then ++, so 1 is assigned to i. After that address stored in p is incremented by 1. Now p is pointing to second element of num i.e. 4.
+
+So, finally:
+*p is 4
+*q is 8
+i is 1

@@ -1,0 +1,71 @@
+/*
+This article will describe a quick and easy algorithm that gives the full permutation for a natural number. The algorithm will be implemented by C++.
+
+A full permutation is list of all variation for given items (usually numbers). For example, the full permutation of 3 elements are:
+
+1 2 3
+1 3 2
+2 1 3
+2 3 1
+3 1 2
+3 2 1
+
+As we can easily calculate, the total number of iterations is n! (factorial). How do we get this number? The most simple way is to think of the number of different items we can choose for each position. For example, for the first place, we have n choices, and we have n-1 choices for the second place, and etc. Thus we have n*(n-1)*(n-2)*...1 that gives a total number n!.
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+// helper dynamic array
+int *nums;
+
+// exchange two integers
+inline void swap(int &i, int &j)
+{
+        int t = i;
+        i = j;
+        j = t;
+}
+
+// full permutation
+void perm(int n, int i)
+{
+        if (i == n - 1) // check if reach the end of iteration
+        {
+               // print out the iteration
+               for (int j = 0; j < n; j ++)
+               {
+                       cout << nums[j];
+               }
+               cout << endl;
+        }
+        else
+        {
+               for (int j = i; j < n; j ++)
+               {
+                       swap(nums[i], nums[j]); // swap
+                       perm(n, i + 1);         // recursive
+                       swap(nums[i], nums[j]); // swap it back
+               }
+        }
+}
+
+// main entry
+int main()
+{
+        int n;
+        cin >> n;
+        nums = new int[n]; // declare a dynamic array
+        for (int i = 0; i < n; i ++)
+        {
+               // and fill it with numbers as 1, 2, 3, ... n
+               nums[i] = i + 1;
+        }
+        perm(n, 0);
+        cin >> n; // pause
+        return 0;
+
+}
+

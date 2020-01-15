@@ -1,0 +1,18 @@
+//recursion - revrs linked list
+struct node* reverseList(struct node *head)
+{
+    if(head==NULL)
+       return NULL;
+
+   if(head->next==NULL)
+    return head;
+
+   struct node* second=head->next;
+   head->next=NULL;
+   struct node* remaining=reverseList(second);
+   second->next=head;
+
+   return remaining;
+
+}
+

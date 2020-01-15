@@ -1,0 +1,31 @@
+ What is Disjoint-set Data Structure?
+
+ It is a data structure to keep a record of set of elements that are partitioned into number of disjoint subsets.
+
+Such type of data structure performs three basic operations:
+
+1. MakeSet operation
+2. Find operation
+3. Union operation
+
+Sometimes, it is called Union-Find data structure or Merge-Find data structure.
+Applications
+Applications
+It is used as an auxiliary data structure for various algorithms like Kruskal’s algorithm in graph theory and other partitioning problems.
+
+
+MakeSet Operation
+Initially, input elements are considered as a collection of n sets, of which each element in each set. Each set has different element, so Si n Sj = F. This makes sets disjoints.
+
+The operation MakeSet creates a new set containing a single element for each given element. MakeSet creates a set of singleton elements in which each element represent its own set as shown below.
+
+
+Union and Find Operation
+To add relation, aRb (a and b can be any element from given elements) we use Union operation. But to do union we have to find out that whether a and b are related or not.
+
+This can be verified by Find operation. Find operation check whether a and b are already related or not. If they are not, then union is applied creating a new set Sk = Si U Sj and deletes Si and Sj. If they are related, Find returns the set in which they are located.
+
+Eg: After some operations of union, some sets are grouped together as shown below:
+
+To represent each set, which is important, an element is fixed which is called representative of that set. So, while we are using Find operation on any element X, it will return the representative of the set in which element X is present.
+

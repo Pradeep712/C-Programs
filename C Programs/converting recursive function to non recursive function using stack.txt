@@ -1,0 +1,33 @@
+ How to Convert a Recursive Function or Algorithm to Non-Recursive?
+
+ Any recursive function can be converted to non-recursive function through use of a stack as explained below.
+
+    A recursive call is similar to a call to another function.
+    Any call to a function requires that the function has storage area where it can store its local variables and actual parameters.
+    Return address must be saved before a call is made to a function.
+    Storage area for local variables, actual parameters and the return address can be provided through a stack.
+    In case of a recursive call, the value of local variables, parameters and the return address must be saved on the stack.
+    While returning from a nested call, the previous outer call must be recalled with resetting all the local variables and operation must resume from where it was suspended.
+
+ Rules for converting a recursive algorithm to non-recursive one:
+Initialization:
+
+    Declare stack – It will hold local variables, parameters, return address, etc.
+    The first statement after the stack initialization must have a label.
+
+
+Steps required to replace a recursive call:
+
+    Push all local variables and parameters into the stack.
+    Push an integer i into the stack, i gives the return address.
+    Set the value of formal parameters.
+    Transfer the control to the beginning of the function (i.e. first label immediately after initialization of stack) using goto. Use of goto is not a good practice but here we have no choice.
+    There should always be a label statement immediately following the recursive call. This label is the return address.
+
+
+Steps required at the end of recursive function:
+
+    If the stack is empty, then the recursion is finished.
+    Otherwise, pop the stack to restore the values of all local variables and parameters called by value.
+    Pop the return address.
+

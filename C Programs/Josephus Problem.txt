@@ -1,0 +1,44 @@
+/*
+ What is Josephus Problem?
+ This is an interesting programming problem know in the literature as Josephus problem. The problem is given as:
+
+1. Suppose there are n children standing in a queue.
+
+2. Students are numbered from 1 to n in the clockwise direction.
+
+3. Students choose a lucky number say m.
+
+They start counting in clockwise direction from the child designated as 1. The counting proceeds until the mth child is identified. mth child is eliminated from the queue. Counting for the next round begins from the child next to the eliminated one and proceeds until the mth child is identified. This child is then eliminated and the process continues. After few rounds of counting only one child is left and this child is declared as winner.
+*/
+
+ Implementation
+It is required to write a program to identify a winner of the game. Inputs to the function are two parameters.
+
+n: number of children
+m: lucky number
+
+function returns an integer identifying the winner
+
+
+int winner (int m, int n)
+{
+                                 queue q;
+                                 int i;
+                                 init (&q);             //create a queue of n integers, numbered from 1 to n. Number I stands for ith child
+                                
+                                 for (i=1; i<=n; i++)
+                                                enqueue (&q, i);
+                                 for (j=1; j<=n; j++)          //n-1 iterations to eliminate n-1 children
+                                 {
+                                                for (i=1; 1<m; i++)            //skip m-1 children
+                                                {
+                                                                x=dequeue (&q);
+                                                                enqueue (&q, x);
+                                                }
+                                                x=dequeue (&q);             //remove mth children
+                                 }
+                                
+                                 x=dequeue (&q);            //last child winner
+                                 return (x);
+}
+

@@ -1,0 +1,40 @@
+How to store pictures in Mysql database?
+
+1) Download and install MySQL Query Browser
+
+2) Start it and create a connection to your database. Use the "test" as default schema.
+
+3a) Excute the following SQL statement.
+
+CREATE TABLE `test`.`pic` (
+`idpic` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+`caption` VARCHAR(45) NOT NULL,
+`img` LONGBLOB NOT NULL,
+PRIMARY KEY(`idpic`)
+)
+TYPE = InnoDB;
+
+3b) Instead of creating the table via SQL, you can create a table by pressing the right mouse button on the schemata tree and select "Create New Table"
+
+Type "pic" in the Table Name field. Press enter. Press enter again to create the first column named "idpic" (that will be your primary key). Press enter to accept INTEGER as datatype. Enter "caption" to store a name for you picture. Press enter. Type "v" (which will trigger VARCHAR(45)) and press enter. Type "img" and enter. Type "longb" (which will trigger LONGBLOB) and press enter. Click [Apply Changes]. This will show you the SQL statement that will be executed.
+
+Press [Execute] to create the table.
+
+5) Close the table editor or refresh the schemata tree and doubleclick the new generated table in the schemata tree
+
+6) This will generate the SQL statement
+
+SELECT * FROM pic p
+
+Now click the table again to execute it. You can press Ctrl+Enter instead (of course)
+
+7) Now click on the [Edit] button in the action bar at the bottom. Doubleclick the empty caption field. Enter a name for your picture. Press enter.
+
+8) Click the "Open" overlay icon in the left of the img field in the first row. Or you can press the right mousebutton on the field and select "Load Field Content" from the popup menu.
+
+9) Click [Apply Changes] to actually store the new data in the database.
+
+10) Now click the "Magnifyer" overlay icon and if you have inserted a JPG, PNG or BMP image you will see it in the field viewer.
+
+Tip: To be able to insert images that are bigger than 1MB you have to increase the max_allowed_packed option in the server configuration file. You can change that in the Startup Variables section in the MySQL Administrator on the Networking page.
+

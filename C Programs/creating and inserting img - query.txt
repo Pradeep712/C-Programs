@@ -1,0 +1,10 @@
+//Create a table
+CREATE TABLE images (
+	        picid int NOT NULL AUTO_INCREMENT,
+	        description VARCHAR(40),
+	        image BLOB,
+	        PRIMARY KEY (picid));
+	 
+// Insert the row
+	INSERT INTO images VALUES
+	        (NULL,'picture of a frog','c\:images\frog.png');

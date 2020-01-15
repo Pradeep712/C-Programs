@@ -1,0 +1,105 @@
+ Graphs: Introduction and Terminology
+
+1. Introduction
+A graph (G) is a set of vertices (V) and set of edges (E). The set V is a finite, nonempty set of vertices. The set E is a set of pair of vertices representing edges.
+
+G= (V, E)
+V (G) = Vertices of graph G
+E (G) = Edges of graph G
+
+An example of graph is shown below:
+
+ The set representation for graph is:
+
+V (G) = {A, B, C, D, E, F}
+E (G) = {(A, B), (A, C), (B, C), (B, D), (D, E), (D, F), (E, F)}
+
+ Applications
+Graphs have many important applications as shown below:
+- Analysis of electrical circuit
+- Finding shortest routes
+- Project planning
+- To represent highway structures
+- Communication lines
+- Railway lines
+
+2. Undirected Graph
+A graph containing unordered pair of vertices is called an undirected graph. In an undirected graph, pair of vertices (A, B) and (B, A) represent the same edge.
+
+An example of undirected graph is show below:
+
+V = {1, 2, 3, 4, 5}
+E = {(1, 2), (1, 3), (1, 5), (2, 3), (2, 4), (3, 4), (4, 5)}
+
+3. Directed Graph
+A graph contain ordered pair of vertices is called a directed graph. If an edge is represented using a pair of vertices (A, B) then the edge is said to be directed from A to B.
+
+In a directed graph, the pairs (A, B) and (B, A) represent two different edges of a graph. Example of directed graph is shown below.
+
+ V = {1, 2, 3, 4, 5}
+E = {(1, 3), (1, 5), (2, 1), (2, 4), (3, 4), (4, 5)}
+
+4. Complete Graph
+An undirected graph, in which every vertex has an edge to all other vertices, is called a complete graph. A complete graph with N vertices has (N (N-1))/2 edges.
+
+ 5. Weighted Graph
+A weighted graph is a graph in which edges are assigned some value. For example, an edge may represent a highway link between two cities. The weight will denote the distance between connected cities using highway. Weight of an edge is also called its cost.
+
+ 6. Adjacent Nodes
+Two vertices A and B are said to be adjacent if there is an edge between A and B.
+
+
+ 7. Path
+A path V0 to Vn is a sequence of vertices V0, V1, V2 . . . Vn-1, Vn. Here, V0 is adjacent to V1, V1 is adjacent to V2 and Vn-1 is adjacent to Vn. The length of a path is the number id edges in the path. A path with n vertices has a length of n-1. A path is simple if all vertices on the path, except possibly the first and last, are distinct.
+
+8. Cycle
+A cycle is a simple path that begins and ends at the same vertex. An example is shown below:
+
+A B D A is a cycle of length 3
+A B C D A is a cycle of length 4
+
+9. Connected Graph
+A graph is said to be connected if there exists a path between every pair of vertices Vi and Vj.
+
+ 10. Subgraph
+A subgraph of G is a graph G1 such that V (G1) is a subset of V (G) and E (G1) is a subset of E (G).
+
+ 11. Component
+A component H of an undirected graph is maximal connected subgraph. The graph in below figure has three components H1, H2 and H3.
+
+ 12. Degree of a Vertex
+The total number of edges linked to a vertex is called its degree.
+
+Indegree: The indegree of a vertex is the total number of edges coming to that node.
+
+Outdgree: The outdgree of a node is the total number of edged going out from that node.
+
+Source: A vertex, which has only outgoing edges and no incoming edges, is called a source.
+
+Sink: A vertex having only incoming edges and no outgoing edges is called sink.
+
+Pendant: When indegree of a vertex is one and outdegree is zero then such a vertex is called pendant vertex.
+
+Isolated: When the degree of a vertex is zero, it is an isolated vertex.
+
+ 13. Self Edges or Self Loops
+An edge of the form (V, V) is known as self edge or self loop.
+
+ 14. Multigraph
+A graph with multiple occurrences of the same edge is known as a miltigraph.
+
+ 15. Tree
+A tree is a connected graph without any cycle. Tree is a special case of a graph. When a tree is treated as a graph, it need not have a special vertex called the root.
+
+ 16. Spanning Tree
+A spanning tree of a graph G = (V, E) is a connected subgraph of G having all vertices of G and no cycles in it. If the graph G is not connected then there is no spanning tee of G. A graph may have multiple spanning trees.
+
+ 17. Minimal Spanning Tree
+The cost of a graph is the sum of the costs of the edges in the weighted graph. A spanning tree of a group G = (V, E) is called a minimal cost spanning tree or simply the minimal spanning tree of G if its cost is minimum.
+
+ G ? A sample weighted graph
+T1 ? A spanning tree of G with cost 5 + 9 = 14
+T2 ? A spanning tree of G with cost 10 + 9 = 19
+T3 ? A spanning tree of G with cost 5 + 10 = 15
+
+Therefore T1 with cost 14 is the minimal cost spanning tree of the graph G.

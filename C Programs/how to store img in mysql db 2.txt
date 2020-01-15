@@ -1,0 +1,58 @@
+Two ways to store image in mysql database:
+1) you can creat binary column in table and store image in binary format in table itself
+2) you can create column with file name/path reference only and store actual file as os file in some folder.
+
+2nd way is better:
+For inserting images in mysql-:
+
+MySQL has a blob data type which can used to store binary data. A blob is a collection of binary data stored as a single entity in a database management system. Blobs are typically images, audio or other multimedia blob objects. MySQL has four BLOB types:
+
+TINYBLOB
+BLOB
+MEDIUMBLOB
+LONGBLOB
+
+All these types differ only in their sizes.
+
+For my demonstration, lets us create a test table named test_image in MySQL having 3 columns show below-:
+
+Id (INT) -Act as primary key for table.
+Name (VARCHAR) – Used to store image name.
+Image (BLOB) – Used to store actual image data.
+You can use phpMyAdmin tool to create the above table else use the following MySQL query-:
+
+    create table test_image (
+    id int(10) not null AUTO_INCREMENT PRIMARY KEY,
+    name varchar(25) not null default '',
+    image blob not null
+    );
+
+Also you can go through this.
+    create table testblob (
+    image_id tinyint(3) not null default '0',
+    image_type varchar(25) not null default '',
+    image blob not null,
+    image_size varchar(25) not null default '',
+    image_ctgy varchar(25) not null default '',
+    image_name varchar(50) not null default ''
+    );
+    Then you can write an image to the database like:
+    $imgData = file_get_contents($filename);
+    $size = getimagesize($filename);
+    mysql_connect("localhost", "$username", "$password");
+    mysql_select_db ("$dbname");
+    $sql = "INSERT INTO testblob
+    ( image_id , image_type ,image, image_size, image_name)
+    VALUES
+    ('', '{$size['mime']}', '{$imgData}', '{$size[3]}',
+    '{$_FILES['userfile']['name']}')";
+    mysql_query($sql);
+    You can display an image from the database in a web page with:
+    $link = mysql_connect("localhost", "username", "password");
+    mysql_select_db("testblob");
+    $sql = "SELECT image FROM testblob WHERE image_id=0";
+    $result = mysql_query("$sql");
+    header("Content-type: image/jpeg");
+    echo mysql_result($result, 0);
+    mysql_close($link);
+

@@ -1,0 +1,12 @@
+Things to remember while using Operator overloading in C++
+
+1. Operator overloading cannot be used to change the way operator works on built-in types. Operator overloading only allows to redefine the meaning of operator for user-defined types.
+
+For more tutorials visit: http://thecrazyprogrammer.com
+
+2. There are two operators assignment operator(=) and address operator(&) which does not need to be overloaded. Because these two operators are already overloaded in C++ library. For example: If obj1 and obj2 are two objects of same class then, you can use code obj1=obj2; without overloading = operator. This code will copy the contents object of obj2 to obj1. Similarly, you can use address operator directly without overloading which will return the address of object in memory.
+
+3. Operator overloading cannot change the precedence of operators and associativity of operators. But, if you want to change the order of evaluation, parenthesis should be used.
+
+4. Not all operators in C++ language can be overloaded. The operators that cannot be overloaded in C++ are ::(scope resolution), .(member selection), .*(member selection through pointer to function) and ?:(ternary operator).
+

@@ -1,0 +1,14 @@
+
+//Creating a database table in which to store images
+
+create table images (
+    image_id    serial,
+    filename    varchar(255) not null,
+    mime_type   varchar(255) not null,
+    file_size   int          not null,
+    file_data   longblob     not null,
+ 
+    primary key (image_id),
+    index (filename)
+);
+

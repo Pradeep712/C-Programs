@@ -1,0 +1,16 @@
+Here is the code to connect MATLAB with MySql.
+
+    %database url
+    url = ‘jdbc:mysql://localhost:3306/’;
+    %test is a database, root is a user, admin is a password,
+    %com.mysql.jdbc.Driver is a driver name which was included into the folder
+    %and accordingly written the [matlabroot]/toolbox/local/classpath.txt
+    %$matlabroot/java/jar/mysql-connector-java-5.0.8-bin.jar
+    conn = database(‘test’, ‘root’, ‘admin’, ‘com.mysql.jdbc.Driver’, url);
+
+    curs = exec(conn,’SELECT * FROM emp’);
+    curs = fetch(curs);
+    curs.data
+
+For the above program to work, you need to have Mysql Driver and you need to specify the path in the matlab path file. Once the above settings are made you can use mysql database from matlab.
+

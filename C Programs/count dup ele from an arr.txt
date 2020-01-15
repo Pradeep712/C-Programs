@@ -1,0 +1,16 @@
+counting duplicate ele from an arr
+prev = input[0];
+count = 1;
+for (i = 1; i < ARRAYSIZE; i++)
+{
+  if (input[i] == prev) count++;
+  else
+  {
+    printf("%d=%d ", prev, count);
+    prev = input[i];
+    count = 1;
+  }
+}
+// Printing the last element
+printf("%d=%d ", prev, count);
+

@@ -1,0 +1,54 @@
+/* What are B-Trees?
+ B-tree is another very popular search tree. The node in a binary tree like AVL tree contains only one record. AVL tree is commonly stored in primary memory. In database application, where huge volume of data is handled, the search tree cannot be accommodated in primary memory. B-trees are primarily meant for secondary storage.
+
+A B-tree is a M-way tree. An M-way tree can have maximum of M children.
+
+ An M-way tree contains multiple keys in a node. This leads to reduction in overall height of the tree. If a node of M-way tree holds K number of keys then it will have K+1 children.
+
+ Definition
+A B-tree of order M is a M-way search tree with the following properties:
+
+1. The root can have 1 to M-1 keys.
+
+2. All nodes (except the root) have between [(M-1)/2] and M-1 keys.
+
+3. All leaves are at the same depth.
+
+4. If a node has t number of children then it must have (t-1) number of keys.
+
+5. Keys of a node are sorted in ascending order.
+
+ 6. K0, K1, K2 . . . Kn-1 are the keys stored in the node. Subtrees are pointed by P0, P1 . . . Pn then K0>= all keys of the subtree P1
+               .
+               .
+               .
+               .
+
+Kn-1 >= all keys of the subtree Pn-1
+Kn-1 < all keys of the subtree Pn
+
+An example of B-tree of order 4 is shown below:
+
+ Representation of a node of B-tree
+ # define MAX 5
+struct node;
+struct pair
+{
+               node *next;
+               int key;
+};
+struct node
+{
+               node *first;
+               node *father;
+               pair data [MAX];
+               int noofkeys;
+};
+
+    Structure pair is being used to combine a key and the associated tree pointer.
+    Class node can store a maximum of MAX pairs of (key, next). A node with MAX number of keys will give rise to MAX + 1 ways. The additional tree pointer is designated as ‘first’.
+    ‘nooofkeys’ gives the actual number of keys stored in a node.
+    The pointer ‘father’ points to the father of a node. ‘father’ pointer will be NULL for the root node.
+
+
+

@@ -1,0 +1,47 @@
+/*The puzzle appears to be the most-favourite interview questions. It asks you to implement an algorithm to check if a given string matches itself in terms of open and close brackets. There are three kinds of brackets, [, { and (, and their corresponding closed brackets are ], } and ).
+
+For example, ()[] is a valid parentheses but ([]} is not.
+
+The question tests your skills to use a stack data structure. A stack is a First In Last Out (FILO) data structure. In C++, you can easily use the stack by the following:*/
+
+#include <stack>
+ 
+using namespace std;
+ 
+int main() {
+    stack<int> st;  // template - stack contains integers
+    st.push(1); // put an element;
+    cout << st.top(); // the element at top;
+    st.pop(); // remove the top element;
+    cout << st.size(); // number of elements in the stack
+}
+
+/* So, we just have to push to the stack when we meet the left brackets {, [ or (, and when we meet the right brackets, we check if there is a corresponding left bracket, if yes, pop the element out of the stack otherwise, it is not a valid parentheses. If there is nothing in the stack when we want to check its left bracket or when the string is scanned to the end, there is still brackets left in the stack, it is also not valid. A valid parentheses will give a empty stack in the end i.e. everything will be paired, push and pop.*/
+
+#include <stack>
+using namespace std;
+ 
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        for (int i = 0; i < s.length(); i ++) {
+            if ((s[i] == '(') || (s[i] == '[') || (s[i] == '{')) {
+                st.push(s[i]); // add to the stack
+            } else {
+                if (st.size() == 0) return false;
+                char top = st.top();
+                if (s[i] == ')') {
+                    if (top != '(') return false;
+                } else if (s[i] == ']') {
+                    if (top != '[') return false;
+                } else {
+                    if (top != '{') return false;
+                }
+                st.pop(); // remove a top element from the stack
+            }
+        }
+        return st.size() == 0;
+    }
+}
+

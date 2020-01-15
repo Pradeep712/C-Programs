@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Javascript weight conversion - w3resource</title>
+<style type="text/css">
+body {margin: 30px;}
+</style>  
+</head>
+<body>
+<body>
+<fieldset>
+Convert <input id="input" type="text"/>
+<select id="from">
+                <option>kg</option>
+                <option>lb</option>
+            </select>
+            <select id="to">
+                <option>lb</option>
+                <option>kg</option>
+            </select>
+            <button onclick="weight_conversion();">Calculate</button>
+            <span id="answer"></span>
+        </fieldset>
+    </body>  
+</body>
+</html>
+
+function weight_conversion()
+{
+value = parseInt(document.getElementById("input").value,10);
+    if (document.getElementById("from").value == "kg" && document.getElementById("to").value == "lb") 
+    {
+        value *= 2.20462262;
+    } 
+  else if (document.getElementById("from").value == "lb" && document.getElementById("to").value == "kg")
+    {
+        value *= 0.45359237;
+    }
+document.getElementById("answer").innerHTML = value;
+}

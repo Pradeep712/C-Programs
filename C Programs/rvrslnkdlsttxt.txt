@@ -1,0 +1,80 @@
+//another ver
+typedef struct List
+{
+ int info;
+ struct List *next;
+}List;
+
+
+List* reverseList(List *head)
+{
+ p=head;
+ q=p->next;
+ p->next=NULL;
+ while(q)
+ {
+    q = (List*) ((int)p ^ (int)q ^ (int)q->next ^ (int)(q->next=p) ^ (int)(p=q));
+ }
+ head = p;
+ return head;
+}  
+
+//another
+void reverse()
+{
+ node * pointer1=head->next;
+ if(pointer1!=NULL)
+ {
+   node *pointer2=pointer1->next;
+   pointer1->next=head;
+   head->next=NULL;
+   head=pointer1;
+   if(pointer2!=NULL)
+   {
+     while(pointer2!=NULL)
+     {
+      pointer1=pointer2;
+      pointer2=pointer2->next;
+      pointer1->next=head;
+      head=pointer1;
+     }
+     pointer1->next=head;
+     head=pointer1;
+   }
+
+   }
+ }
+
+//another version:
+
+void reverse(ListElem *&head)
+{
+    ListElem* temp;
+    ListElem* elem = head->next();
+    ListElem* prev = head;
+    head->next(0);
+
+    while(temp = elem->next())
+    {
+        elem->next(prev);
+        prev = elem;
+        elem = temp;
+    }
+    elem->next(prev);
+    head = elem;
+}
+
+where
+
+class ListElem{
+public:
+    ListElem(int val): _val(val){}
+    ListElem *next() const { return _next; }
+    void next(ListElem *elem) { _next = elem; }
+    void val(int val){ _val = val; }
+    int val() const { return _val;}
+private:
+    ListElem *_next;
+    int _val;
+};
+

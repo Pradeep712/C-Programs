@@ -1,0 +1,11 @@
+typedef struct node* link;
+
+
+
+struct node{ int item; link next; };
+
+
+/* you send the existing list to reverse() and returns the reversed one */
+
+
+link reverse(link x){ link t, y = x, r = NULL; while(y != NULL){ t = y->next; y-> next = r; r = y; y = t; } return r; } 
